@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraryGeo | Premium Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark py-3 shadow-sm sticky-top">
+        <div class="container">
+            <span class="navbar-brand fw-bold fs-4">📚 Library<span class="text-warning">Geo</span></span>
+            <div class="d-flex align-items-center gap-3">
+                <span id="role-text" class="badge rounded-pill bg-primary px-3 py-2">USER MODE</span>
+                <button class="btn btn-sm btn-outline-light rounded-pill px-3" onclick="toggleRole()">Switch Role</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row mb-4 align-items-center">
+            <div class="col">
+                <h2 class="fw-bold mb-1">Koleksi Buku</h2>
+                <p class="text-muted">Kelola ketersediaan buku dan peminjaman berbasis lokasi.</p>
+            </div>
+            <div class="col-auto" id="admin-action" style="display: none;">
+                <button class="btn btn-warning fw-bold px-4 py-2 shadow-sm rounded-3" data-bs-toggle="modal" data-bs-target="#addBookModal">
+                    + Tambah Buku
+                </button>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-dark text-white">
+                        <tr>
+                            <th class="ps-4 py-3 text-uppercase small fw-bold">Judul Buku</th>
+                            <th class="text-uppercase small fw-bold">Penulis</th>
+                            <th class="text-uppercase small fw-bold">Stok</th>
+                            <th class="text-end pe-4 text-uppercase small fw-bold">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="book-list">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editStockModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="fw-bold mt-2">Update Stok Buku</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <input type="hidden" id="editBookId">
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">JUMLAH STOK BARU</label>
+                        <input type="number" id="editStockValue" class="form-control form-control-lg text-center fw-bold bg-light border-0 shadow-sm" placeholder="0">
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-dark rounded-pill px-4 shadow-sm" onclick="updateStock()">Simpan Perubahan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addBookModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="fw-bold mt-2">Tambah Koleksi Baru</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">JUDUL BUKU</label>
+                        <input type="text" id="title" class="form-control shadow-sm border-0 bg-light" placeholder="Contoh: Filosofi Teras">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">PENULIS</label>
+                        <input type="text" id="author" class="form-control shadow-sm border-0 bg-light" placeholder="Nama Penulis">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">JUMLAH STOK</label>
+                        <input type="number" id="stock" class="form-control shadow-sm border-0 bg-light" placeholder="0">
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-warning fw-bold rounded-pill px-4 shadow-sm" onclick="addBook()">Simpan Buku</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

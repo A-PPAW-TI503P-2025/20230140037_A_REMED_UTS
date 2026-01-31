@@ -1,0 +1,10 @@
+body { background-color: #f4f7f6; font-family: 'Plus Jakarta Sans', sans-serif; }
+.navbar { background: #121416 !important; padding: 1rem 0; }
+.card { border-radius: 20px; border: none; }
+.table thead { background-color: #f8f9fa; }
+.table thead th { font-size: 0.7rem; letter-spacing: 1px; color: #6c757d; border-bottom: none; }
+.badge { font-weight: 600; font-size: 0.8rem; }
+.btn-outline-primary { border-color: #0d6efd; color: #0d6efd; }
+.btn-outline-primary:hover { background: #0d6efd; color: white; }
+.btn-outline-danger { border-color: #ff4d4d; color: #ff4d4d; }
+.btn-outline-danger:hover { background: #ff4d4d; color: white; }
